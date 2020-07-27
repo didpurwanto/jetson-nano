@@ -34,15 +34,20 @@ rm get-pip.py
 sudo pip3 install -U pip testresources setuptools
 
 pip3 install numpy==1.16.1
+sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev
+sudo apt-get install python3-pip
+sudo pip3 install -U pip
+sudo pip3 install -U numpy grpcio absl-py py-cpuinfo psutil portpicker six mock requests gast h5py astor termcolor protobuf keras-applications keras-preprocessing wrapt google-pasta
+sudo pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v43 tensorflow==2.1.0+nv20.3
+
+Or download tensorflow here
+https://developer.download.nvidia.com/compute/redist/jp/v43/tensorflow/
+download the .whl file and install it
 
 sudo pip3 install future==0.17.1 mock==3.0.5 h5py==2.9.0 keras_preprocessing==1.0.5 keras_applications==1.0.8 gast==0.2.2 futures protobuf pybind11
 sudo apt-get install pkg-config libhdf5-100 libhdf5-dev
 pip3 install scipy
 pip3 install keras==2.3.0
-
-Download tensorflow here
-https://developer.download.nvidia.com/compute/redist/jp/v43/tensorflow/
-download the .whl file and install it
 
 It will take some times.
 
