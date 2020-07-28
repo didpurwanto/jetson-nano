@@ -67,4 +67,27 @@ After finish, you can try the demo
 cd /build/aarch64/bin
 ./imagenet-camera -camera /dev/video0 googlenet
 
+Install Torch 1.1.0
+check this website to download the installers
+https://forums.developer.nvidia.com/t/pytorch-for-jetson-nano-version-1-5-0-now-available/72048
 
+nano .bashrc
+export CUDA_HOME=/usr/local/cuda
+export PATH=$CUDA_HOME/bin:$PATH
+export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
+source .bashrc
+
+
+pip3 install Cython
+sudo apt-get install python3-pip libopenblas-base libopenmpi-dev
+Download torch for jetson nano and install it
+pip3 install torch-1.1.0-cp36-cp36m-linux_aarch64.whl
+sudo apt-get install libjpeg-dev zlib1g-dev
+
+pip install 'pillow<7'
+pip3 install 'pillow<7'
+Install Torchvision
+git clone --branch v0.3.0 https://github.com/pytorch/vision torchvision for torch 1.1.0
+
+sudo apt-get install -y python-setuptools
+sudo python3 setup.py install
