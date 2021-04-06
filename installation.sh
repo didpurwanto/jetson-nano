@@ -42,6 +42,7 @@ pip3 install astor termcolor protobuf keras-applications keras-preprocessing wra
 
 Sometime have a problem during h5py installation, to solve it, make sure to have these versions:
 numpy==1.19.0, six 1.15.0, h5py==2.9.0
+Also install the cython: pip3 install Cython
 
 Install tensorflow. Make sure your Jetpack version during Ubuntu Installation (jp/v43 means jetpack version 4.3)
 pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v43 tensorflow==2.1.0+nv20.3
