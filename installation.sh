@@ -29,16 +29,22 @@ sudo apt-get update
 
 Install Pip
 wget https://bootstrap.pypa.io/get-pip.py
-sudo python3 get-pip.py
+python3 get-pip.py
 rm get-pip.py
-sudo pip3 install -U pip testresources setuptools
+pip3 install -U pip testresources setuptools
 
-pip3 install numpy==1.16.1
-sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev
-sudo apt-get install python3-pip
-sudo pip3 install -U pip
-sudo pip3 install -U numpy grpcio absl-py py-cpuinfo psutil portpicker six mock requests gast h5py astor termcolor protobuf keras-applications keras-preprocessing wrapt google-pasta
-sudo pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v43 tensorflow==2.1.0+nv20.3
+pip3 install numpy==1.19.1
+apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev
+apt-get install python3-pip
+pip3 install -U pip
+pip3 install -U numpy grpcio absl-py py-cpuinfo psutil portpicker six mock requests gast h5py 
+pip3 install astor termcolor protobuf keras-applications keras-preprocessing wrapt google-pasta
+
+Sometime have a problem during h5py installation, to solve it, make sure to have these versions:
+numpy==1.19.0, six 1.15.0, h5py==2.9.0
+
+Install tensorflow. Make sure your Jetpack version during Ubuntu Installation (jp/v43 means jetpack version 4.3)
+pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v43 tensorflow==2.1.0+nv20.3
 
 Or download tensorflow here
 https://developer.download.nvidia.com/compute/redist/jp/v43/tensorflow/
