@@ -53,8 +53,9 @@ download the .whl file and install it
 
 sudo pip3 install future==0.17.1 mock==3.0.5 h5py==2.9.0 keras_preprocessing==1.0.5 keras_applications==1.0.8 gast==0.2.2 futures protobuf pybind11
 sudo apt-get install pkg-config libhdf5-100 libhdf5-dev
-pip3 install scipy
+pip3 install scipy==1.5.2
 pip3 install keras==2.3.0
+pip3 install scikit-learn==0.23.1
 
 It will take some times.
 
