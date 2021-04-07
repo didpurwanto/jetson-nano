@@ -46,10 +46,14 @@ Also install the cython: pip3 install Cython
 
 Install tensorflow. Make sure your Jetpack version during Ubuntu Installation (jp/v43 means jetpack version 4.3)
 pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v43 tensorflow==2.1.0+nv20.3
+check: https://forums.developer.nvidia.com/t/official-tensorflow-for-jetson-nano/71770
 
 Or download tensorflow here
 https://developer.download.nvidia.com/compute/redist/jp/v43/tensorflow/
 download the .whl file and install it
+
+If cannot succeed, please check:
+https://qengineering.eu/install-tensorflow-2.3.1-on-jetson-nano.html
 
 sudo pip3 install future==0.17.1 mock==3.0.5 h5py==2.9.0 keras_preprocessing==1.0.5 keras_applications==1.0.8 gast==0.2.2 futures protobuf pybind11
 sudo apt-get install pkg-config libhdf5-100 libhdf5-dev
