@@ -94,10 +94,7 @@ export PATH=$CUDA_HOME/bin:$PATH
 export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
 source .bashrc
 
-
 sudo apt-get install python3-pip libopenblas-base libopenmpi-dev
-Download torch for jetson nano and install it
-pip3 install torch-1.1.0-cp36-cp36m-linux_aarch64.whl
 sudo apt-get install libjpeg-dev zlib1g-dev
 
 
@@ -107,11 +104,9 @@ git clone --branch v0.4.0 https://github.com/pytorch/vision torchvision # for to
 cd torchvision
 export BUILD_VERSION=0.4.0 # for torch 1.2.0
 python3 setup.py install --user
-cd ../
+cd ..
 pip install 'pillow<7'
 pip3 install 'pillow<7'
-
-
 
 sudo apt-get install -y python-setuptools
 sudo python3 setup.py install
