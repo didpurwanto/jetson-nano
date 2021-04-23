@@ -79,9 +79,14 @@ After finish, you can try the demo
 cd /build/aarch64/bin
 ./imagenet-camera -camera /dev/video0 googlenet
 
-Install Torch 1.1.0
+Install Torch 
 check this website to download the installers
 https://forums.developer.nvidia.com/t/pytorch-for-jetson-nano-version-1-5-0-now-available/72048
+for example torch 1.2.0:
+wget https://nvidia.box.com/shared/static/06vlvedmqpqstu1dym49fo7aapgfyyu9.whl -O torch-1.2.0a0+8554416-cp36-cp36m-linux_aarch64.whl # for torch 1.2.0
+sudo apt-get install python3-pip libopenblas-base libopenmpi-dev 
+pip3 install Cython
+pip3 install numpy torch-1.2.0a0+8554416-cp36-cp36m-linux_aarch64.whl # for torch 1.2.0
 
 nano .bashrc
 export CUDA_HOME=/usr/local/cuda
@@ -90,16 +95,23 @@ export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
 source .bashrc
 
 
-pip3 install Cython
 sudo apt-get install python3-pip libopenblas-base libopenmpi-dev
 Download torch for jetson nano and install it
 pip3 install torch-1.1.0-cp36-cp36m-linux_aarch64.whl
 sudo apt-get install libjpeg-dev zlib1g-dev
 
+
+Install Torchvision
+git clone --branch v0.3.0 https://github.com/pytorch/vision torchvision # for torch 1.1.0
+git clone --branch v0.4.0 https://github.com/pytorch/vision torchvision # for torch 1.2.0
+cd torchvision
+export BUILD_VERSION=0.4.0 # for torch 1.2.0
+python3 setup.py install --user
+cd ../
 pip install 'pillow<7'
 pip3 install 'pillow<7'
-Install Torchvision
-git clone --branch v0.3.0 https://github.com/pytorch/vision torchvision for torch 1.1.0
+
+
 
 sudo apt-get install -y python-setuptools
 sudo python3 setup.py install
