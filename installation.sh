@@ -104,7 +104,6 @@ git clone --branch v0.4.0 https://github.com/pytorch/vision torchvision # for to
 cd torchvision
 export BUILD_VERSION=0.4.0 # for torch 1.2.0
 python3 setup.py install --user
-cd ..
 pip install 'pillow<7'
 pip3 install 'pillow<7'
 
