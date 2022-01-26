@@ -26,7 +26,7 @@ torch                         1.7.0
 
 
 sudo apt-get update
-
+sudo apt-get install nano
 # the dependencies
 sudo apt-get install python3-pip libjpeg-dev libopenblas-dev libopenmpi-dev libomp-dev
 sudo -H pip3 install future
@@ -44,4 +44,5 @@ sudo -H pip3 install gdown
 gdown https://drive.google.com/uc?id=1WhplBjODLjNmYWEvQliCdkt3CqQTsClm
 sudo -H pip3 install torchvision-0.8.1a0+45f960c-cp36-cp36m-linux_aarch64.whl
 
+sudo apt install python3-seaborn
 
