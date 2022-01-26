@@ -37,6 +37,7 @@ sudo -H pip3 install Cython
 # download torch1.7 from https://forums.developer.nvidia.com/t/pytorch-for-jetson-version-1-10-now-available/72048
 sudo apt-get install libopenblas-base 
 sudo pip3 install numpy torch-1.7.0-cp36-cp36m-linux_aarch64.whl
+sudo apt-get install libfreetype6-dev
 
 # the dependencies
 sudo apt-get install libjpeg-dev zlib1g-dev libpython3-dev libavcodec-dev libavformat-dev libswscale-dev
