@@ -1,111 +1,63 @@
+Edited: Jan 2022
+
 Requirements:
 Jetson Nano
 USB Camera
-SD Card (64 GB)
+SD Card 64 GB 
 
-First, download Jetpack 4.3 here
-https://developer.nvidia.com/jetpack-43-archive
+Download Jetpack 4.6 here:  Jetson Nano Developer Kit
+https://developer.nvidia.com/embedded/jetpack
 
-Thereafter, you should install Etcher. You can download here.
 https://www.balena.io/etcher/
-Here, I install in Etcher in Windows
-
-After finish this preparations, you can plug your SD card in your Jetson Nano. Next, just setup and follow the instruction. This is the same as Ubuntu installation.
 
 Note, that the CUDA is already installed in your pack. Here, you just need to add the cuda path into your bashrc.
-For instance,
-export CUDA_HOME=/usr/local/cuda
-export PATH=$CUDA_HOME/bin:$PATH
-export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
+nano ~/.bashrc
+>>> export CUDA_HOME=/usr/local/cuda
+>>> export PATH=$CUDA_HOME/bin:$PATH
+>>> export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
+source ~/.bashrc
 
-Now, let's work on it. Follow this instruction. If you found any trouble, let me know in comments.
+Requirements:
+Jetpack 4.6
+numpy                         1.19.5
+torchvision                   0.8.1
+torch2trt                     0.2.0
+torch                         1.7.0
+
 
 sudo apt-get update
-sudo apt-get install git cmake
-sudo apt-get install libatlas-base-dev gfortran
-sudo apt-get install libhdf5-serial-dev hdf5-tools
-sudo apt-get install python3-dev
-sudo apt-get update
 
-Install Pip
-wget https://bootstrap.pypa.io/get-pip.py
-python3 get-pip.py
-rm get-pip.py
-pip3 install -U pip testresources setuptools
+# the dependencies
+sudo apt-get install python3-pip libjpeg-dev libopenblas-dev libopenmpi-dev libomp-dev
+sudo -H pip3 install future
+sudo pip3 install -U --user wheel mock pillow
+sudo -H pip3 install testresources
+sudo -H pip3 install --upgrade setuptools
+sudo -H pip3 install Cython
+# download torch1.7 from https://forums.developer.nvidia.com/t/pytorch-for-jetson-version-1-10-now-available/72048
+sudo apt-get install libopenblas-base 
+sudo pip3 install numpy torch-1.7.0-cp36-cp36m-linux_aarch64.whl
 
-pip3 install numpy==1.19.1
-apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev
-apt-get install python3-pip
-pip3 install -U pip
-pip3 install -U numpy grpcio absl-py py-cpuinfo psutil portpicker six mock requests gast h5py 
-pip3 install astor termcolor protobuf keras-applications keras-preprocessing wrapt google-pasta
-
-Sometime have a problem during h5py installation, to solve it, make sure to have these versions:
-numpy==1.19.0, six 1.15.0, h5py==2.9.0
-Also install the cython: pip3 install Cython
-
-Install tensorflow. Make sure your Jetpack version during Ubuntu Installation (jp/v43 means jetpack version 4.3)
-pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v43 tensorflow==2.1.0+nv20.3
-check: https://forums.developer.nvidia.com/t/official-tensorflow-for-jetson-nano/71770
-
-Or download tensorflow here
-https://developer.download.nvidia.com/compute/redist/jp/v43/tensorflow/
-download the .whl file and install it
-
-If cannot succeed, please check:
-https://qengineering.eu/install-tensorflow-2.3.1-on-jetson-nano.html
-
-sudo pip3 install future==0.17.1 mock==3.0.5 h5py==2.9.0 keras_preprocessing==1.0.5 keras_applications==1.0.8 gast==0.2.2 futures protobuf pybind11
-sudo apt-get install pkg-config libhdf5-100 libhdf5-dev
-pip3 install scipy==1.5.2
-pip3 install keras==2.3.0
-pip3 install scikit-learn==0.23.1
-
-It will take some times.
-
-If already finished, now, we can try the demo.
-git clone https://github.com/dusty-nv/jetson-inference
-cd jetson-inference
-git submodule update --init
-
-mkdir build
-cd build
-cmake ..
-
-make
-sudo make install
-
-After finish, you can try the demo 
-cd /build/aarch64/bin
-./imagenet-camera -camera /dev/video0 googlenet
-
-Install Torch 
-check this website to download the installers
-https://forums.developer.nvidia.com/t/pytorch-for-jetson-nano-version-1-5-0-now-available/72048
-for example torch 1.2.0:
-wget https://nvidia.box.com/shared/static/06vlvedmqpqstu1dym49fo7aapgfyyu9.whl -O torch-1.2.0a0+8554416-cp36-cp36m-linux_aarch64.whl # for torch 1.2.0
-sudo apt-get install python3-pip libopenblas-base libopenmpi-dev 
-pip3 install Cython
-pip3 install numpy torch-1.2.0a0+8554416-cp36-cp36m-linux_aarch64.whl # for torch 1.2.0
-
-nano .bashrc
-export CUDA_HOME=/usr/local/cuda
-export PATH=$CUDA_HOME/bin:$PATH
-export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
-source .bashrc
-
-sudo apt-get install python3-pip libopenblas-base libopenmpi-dev
-sudo apt-get install libjpeg-dev zlib1g-dev
-
-
-Install Torchvision
-git clone --branch v0.3.0 https://github.com/pytorch/vision torchvision # for torch 1.1.0
-git clone --branch v0.4.0 https://github.com/pytorch/vision torchvision # for torch 1.2.0
+# the dependencies
+sudo apt-get install libjpeg-dev zlib1g-dev libpython3-dev libavcodec-dev libavformat-dev libswscale-dev
+git clone --branch  v0.8.1 https://github.com/pytorch/vision torchvision
 cd torchvision
-export BUILD_VERSION=0.4.0 # for torch 1.2.0
+export BUILD_VERSION=0.8.1 # where 0.x.x is the torchvision version  
 python3 setup.py install --user
-pip install 'pillow<7'
+cd ../
 pip3 install 'pillow<7'
 
-sudo apt-get install -y python-setuptools
-sudo python3 setup.py install
+# verification
+import torch
+>>> print(torch.__version__)
+>>> print('CUDA available: ' + str(torch.cuda.is_available()))
+>>> print('cuDNN version: ' + str(torch.backends.cudnn.version()))
+>>> a = torch.cuda.FloatTensor(2).zero_()
+>>> print('Tensor a = ' + str(a))
+>>> b = torch.randn(2).cuda()
+>>> print('Tensor b = ' + str(b))
+>>> c = a + b
+>>> print('Tensor c = ' + str(c))
+
+import torchvision
+>>> print(torchvision.__version__)
