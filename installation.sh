@@ -45,7 +45,7 @@ cd torchvision
 export BUILD_VERSION=0.8.1 # where 0.x.x is the torchvision version  
 python3 setup.py install --user
 cd ../
-pip3 install 'pillow<7'
+sudo pip3 install 'pillow<7'
 
 # verification
 import torch
