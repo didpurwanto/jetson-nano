@@ -40,11 +40,8 @@ sudo pip3 install numpy torch-1.7.0-cp36-cp36m-linux_aarch64.whl
 
 # the dependencies
 sudo apt-get install libjpeg-dev zlib1g-dev libpython3-dev libavcodec-dev libavformat-dev libswscale-dev
-git clone --branch  v0.8.1 https://github.com/pytorch/vision torchvision
-cd torchvision
-export BUILD_VERSION=0.8.1 # where 0.x.x is the torchvision version  
-python3 setup.py install --user
-cd ../
-sudo pip3 install 'pillow<7'
+sudo -H pip3 install gdown
+gdown https://drive.google.com/uc?id=1WhplBjODLjNmYWEvQliCdkt3CqQTsClm
+sudo -H pip3 install torchvision-0.8.1a0+45f960c-cp36-cp36m-linux_aarch64.whl
 
 
