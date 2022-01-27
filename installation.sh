@@ -23,10 +23,12 @@ numpy                         1.19.5
 torchvision                   0.8.1
 torch                         1.7.0
 
-
+# structures
 mkdir dev-aibox
 cd dev-aibox
 mkdir input output src assets convert
+
+# system update
 sudo apt-get update
 sudo apt-get install nano
 sudo apt-get install libjpeg-dev libopenblas-dev libopenmpi-dev libomp-dev
@@ -34,14 +36,11 @@ sudo apt-get install curl
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python3 get-pip.py 
 sudo apt-get install python3-pip
-
 pip3 install future
 pip3 install -U pip testresources setuptools==49.6.0 
-
 sudo apt-get install libjpeg-dev libopenblas-dev libopenmpi-dev libomp-dev
 pip3 install testresources
 pip3 install Cython
-
 sudo apt-get install libjpeg-dev zlib1g-dev libpython3-dev
 sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libopenblas-base libopenmpi-dev
 
@@ -52,20 +51,6 @@ cd torchvision
 export BUILD_VERSION=0.8.1 
 sudo python3 setup.py install
 cd ../ 
-
-# yolo model export
-pip3 install seaborn
-pip3 install tqdm
-sudo apt-get install libfreetype6-dev
-sudo pip3 uninstall protobuf
-sudo pip3 install protobuf==3.5.0
-pip3 install numpy==1.19.4
-sudo apt-get install python3-scipy python3-h5py python3-pil
-
-sudo apt-get install libfreetype6-dev
-sudo pip3 uninstall pillow
-sudo pip3 install --no-cache-dir pillow
-pip3 install pycuda
 
 # verification
 python3
@@ -79,8 +64,25 @@ python3
 >>> import torchvision
 >>> print(torchvision.__version__)
 
+# model's export
+pip3 install seaborn
+pip3 install tqdm
+sudo apt-get install libfreetype6-dev
+sudo pip3 uninstall protobuf
+sudo pip3 install protobuf==3.5.0
+pip3 install numpy==1.19.4
+sudo apt-get install python3-scipy python3-h5py python3-pil
+sudo apt-get install libfreetype6-dev
+sudo pip3 uninstall pillow
+sudo pip3 install --no-cache-dir pillow
+
+# tensortrt
+pip3 install pycuda
+
 # install jtop
 sudo pip3 install -U jetson-stats
 
 # gstreamer
 sudo apt-get install mesa-utils
+
+
