@@ -21,10 +21,9 @@ Requirements:
 Jetpack 4.6
 numpy                         1.19.5
 torchvision                   0.8.1
-torch2trt                     0.2.0
 torch                         1.7.0
 
-----
+
 mkdir dev-aibox
 cd dev-aibox
 mkdir input output src assets convert
@@ -46,7 +45,7 @@ pip3 install Cython
 sudo apt-get install libjpeg-dev zlib1g-dev libpython3-dev
 sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libopenblas-base libopenmpi-dev
 
-
+# torch and torchvision
 pip3 install torch-1.7.0-cp36-cp36m-linux_aarch64.whl # download from the official website
 git clone --branch v0.8.1 https://github.com/pytorch/vision torchvision   
 cd torchvision
@@ -54,6 +53,7 @@ export BUILD_VERSION=0.8.1
 sudo python3 setup.py install
 cd ../ 
 
+# yolo model export
 pip3 install seaborn
 pip3 install tqdm
 sudo apt-get install libfreetype6-dev
@@ -82,3 +82,5 @@ python3
 # install jtop
 sudo pip3 install -U jetson-stats
 
+# gstreamer
+sudo apt-get install mesa-utils
