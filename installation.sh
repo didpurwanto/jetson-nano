@@ -80,5 +80,5 @@ python3
 >>> print(torchvision.__version__)
 
 # install jtop
-pip3 install -U jetson-stats
+sudo pip3 install -U jetson-stats
 
