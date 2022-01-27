@@ -24,35 +24,47 @@ torchvision                   0.8.1
 torch2trt                     0.2.0
 torch                         1.7.0
 
+----
+mkdir dev-aibox
+cd dev-aibox
+mkdir input output src assets convert
 sudo apt-get update
 sudo apt-get install nano
-
+sudo apt-get install libjpeg-dev libopenblas-dev libopenmpi-dev libomp-dev
+sudo apt-get install curl
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python3 get-pip.py 
+sudo apt-get install python3-pip
+
+pip3 install future
+pip3 install -U pip testresources setuptools==49.6.0 
 
 sudo apt-get install libjpeg-dev libopenblas-dev libopenmpi-dev libomp-dev
-sudo -H pip3 install future
-sudo pip3 install -U --user wheel mock pillow
-sudo -H pip3 install --upgrade setuptools
-
-sudo apt-get install python3-pip libjpeg-dev libopenblas-dev libopenmpi-dev libomp-dev
-sudo -H pip3 install future
-sudo pip3 install -U --user wheel mock pillow
-sudo -H pip3 install testresources
-sudo -H pip3 install --upgrade setuptools
-sudo -H pip3 install Cython
+pip3 install testresources
+pip3 install Cython
 
 sudo apt-get install libjpeg-dev zlib1g-dev libpython3-dev
 sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libopenblas-base libopenmpi-dev
 
-sudo pip3 install torch-1.7.0-cp36-cp36m-linux_aarch64.whl 
-sudo pip3 install numpy torch-1.7.0-cp36-cp36m-linux_aarch64.whl
+
+pip3 install torch-1.7.0-cp36-cp36m-linux_aarch64.whl # download from the official website
 git clone --branch v0.8.1 https://github.com/pytorch/vision torchvision   
 cd torchvision
 export BUILD_VERSION=0.8.1 
 sudo python3 setup.py install
 cd ../ 
-sudo pip3 install 'pillow<7'
+
+pip3 install seaborn
+pip3 install tqdm
+sudo apt-get install libfreetype6-dev
+sudo pip3 uninstall protobuf
+sudo pip3 install protobuf==3.5.0
+pip3 install numpy==1.19.4
+sudo apt-get install python3-scipy python3-h5py python3-pil
+
+sudo apt-get install libfreetype6-dev
+sudo pip3 uninstall pillow
+sudo pip3 install --no-cache-dir pillow
 
 
 # verification
@@ -67,8 +79,6 @@ python3
 >>> import torchvision
 >>> print(torchvision.__version__)
 
-
-sudo pip3 install scipy
 
 ENVIRONMENT
 ----------------
