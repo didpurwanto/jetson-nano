@@ -24,35 +24,51 @@ torchvision                   0.8.1
 torch2trt                     0.2.0
 torch                         1.7.0
 
-
 sudo apt-get update
 sudo apt-get install nano
-# the dependencies
+
+sudo apt-get install python3-pip libjpeg-dev libopenblas-dev libopenmpi-dev libomp-dev
+sudo -H pip3 install future
+sudo pip3 install -U --user wheel mock pillow
+sudo -H pip3 install --upgrade setuptools
+
 sudo apt-get install python3-pip libjpeg-dev libopenblas-dev libopenmpi-dev libomp-dev
 sudo -H pip3 install future
 sudo pip3 install -U --user wheel mock pillow
 sudo -H pip3 install testresources
 sudo -H pip3 install --upgrade setuptools
 sudo -H pip3 install Cython
-# download torch1.7 from https://forums.developer.nvidia.com/t/pytorch-for-jetson-version-1-10-now-available/72048
-sudo apt-get install libopenblas-base 
+
+sudo apt-get install libjpeg-dev zlib1g-dev libpython3-dev
+sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libopenblas-base libopenmpi-dev
+
+sudo pip3 install torch-1.7.0-cp36-cp36m-linux_aarch64.whl 
 sudo pip3 install numpy torch-1.7.0-cp36-cp36m-linux_aarch64.whl
-sudo apt-get install libfreetype6-dev
+git clone --branch v0.8.1 https://github.com/pytorch/vision torchvision   
+cd torchvision
+export BUILD_VERSION=0.8.1 
+sudo python3 setup.py install
+cd ../ 
+sudo pip3 install 'pillow<7'
 
-# the dependencies
-sudo apt-get install libjpeg-dev zlib1g-dev libpython3-dev libavcodec-dev libavformat-dev libswscale-dev
-sudo -H pip3 install gdown
-gdown https://drive.google.com/uc?id=1WhplBjODLjNmYWEvQliCdkt3CqQTsClm
-sudo -H pip3 install torchvision-0.8.1a0+45f960c-cp36-cp36m-linux_aarch64.whl
+# verification
+python3
+>>> import torch
+>>> print(torch.__version__)
+>>> print('CUDA available: ' + str(torch.cuda.is_available()))
+>>> print('cuDNN version: ' + str(torch.backends.cudnn.version()))
+>>> a = torch.cuda.FloatTensor(2).zero_()
+>>> print('Tensor a = ' + str(a))
 
-sudo apt install python3-seaborn
-sudo -H pip3 install scikit-learn
+>>> import torchvision
+>>> print(torchvision.__version__)
 
 
+ENVIRONMENT
 
-My env.
-Package                       Version
------------------------------ -------------------
+----------------
+NX jetson
+----------------
 aniso8601                     9.0.1
 appdirs                       1.4.4
 apt-clone                     0.2.1
@@ -187,8 +203,9 @@ zeep                          4.1.0
 zipp                          3.6.0
 zope.interface                4.3.2
 
-
-Nano
+----------------
+Nano jetson 
+----------------
 apt-clone (0.2.1)
 apturl (0.5.2)
 asn1crypto (0.24.0)
