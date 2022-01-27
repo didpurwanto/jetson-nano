@@ -27,7 +27,10 @@ torch                         1.7.0
 sudo apt-get update
 sudo apt-get install nano
 
-sudo apt-get install python3-pip libjpeg-dev libopenblas-dev libopenmpi-dev libomp-dev
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python3 get-pip.py 
+
+sudo apt-get install libjpeg-dev libopenblas-dev libopenmpi-dev libomp-dev
 sudo -H pip3 install future
 sudo pip3 install -U --user wheel mock pillow
 sudo -H pip3 install --upgrade setuptools
@@ -51,6 +54,7 @@ sudo python3 setup.py install
 cd ../ 
 sudo pip3 install 'pillow<7'
 
+
 # verification
 python3
 >>> import torch
@@ -64,8 +68,9 @@ python3
 >>> print(torchvision.__version__)
 
 
-ENVIRONMENT
+sudo pip3 install scipy
 
+ENVIRONMENT
 ----------------
 NX jetson
 ----------------
